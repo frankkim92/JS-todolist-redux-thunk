@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import HeightBox from "../common/HeightBox";
-import { removeTodo, switchTodo } from "../../modules/todos";
+import { __removeTodoThunk, __switchTodoThunk } from "../../modules/todos";
 import { useNavigate } from "react-router-dom";
 import {
   StyledDiv,
@@ -28,11 +28,11 @@ function Todo({ todo, isActive }) {
   const navigate = useNavigate();
 
   // 완료, 취소를 handling하는 함수
-  const handleSwitchButton = () => dispatch(switchTodo(todo.id));
+  const handleSwitchButton = () => dispatch(__switchTodoThunk(todo.id));
 
   // [삭제] 버튼 선택 시 호출되는 함수(user의 confirmation 필요)
   const handleRemoveButton = () => {
-    if (window.confirm(CONFIRM_MESSAGE)) dispatch(removeTodo(todo.id));
+    if (window.confirm(CONFIRM_MESSAGE)) dispatch(__removeTodoThunk(todo.id));
   };
 
   // [상세보기]를 선택하는 경우 이동하는 함수
