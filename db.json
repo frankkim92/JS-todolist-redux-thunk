@@ -9,7 +9,7 @@
     {
       "title": "a",
       "contents": "bdd",
-      "isDone": false,
+      "isDone": true,
       "id": 3
     },
     {
@@ -19,15 +19,9 @@
       "id": 5
     },
     {
-      "title": "1",
-      "contents": "11",
-      "isDone": false,
-      "id": 9
-    },
-    {
       "title": "123",
       "contents": "123",
-      "isDone": false,
+      "isDone": true,
       "id": 10
     }
   ]

@@ -28,7 +28,14 @@ function Todo({ todo, isActive }) {
   const navigate = useNavigate();
 
   // 완료, 취소를 handling하는 함수
-  const handleSwitchButton = () => dispatch(__switchTodoThunk(todo.id));
+
+  // const handleSwitchButton = () => dispatch(__switchTodoThunk(todo.id));
+
+  const handleSwitchButton = () => {
+    const switchTodo = { ...todo, isDone: !todo.isDone };
+    dispatch(__switchTodoThunk(switchTodo));
+  };
+  //여기 추가, 삭제 부분은 괜찮은데 이상하게 여기 스위치부분이 조금 햇갈립니다..ㅠㅠ
 
   // [삭제] 버튼 선택 시 호출되는 함수(user의 confirmation 필요)
   const handleRemoveButton = () => {

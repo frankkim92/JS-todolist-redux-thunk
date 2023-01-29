@@ -47,7 +47,7 @@ export const __switchTodoThunk = createAsyncThunk(
   "SWITCH_TODO",
   async (arg, thunkAPI) => {
     try {
-      await axios.update(`http://localhost:4000/todos/${arg.id}`, arg);
+      await axios.patch(`http://localhost:4000/todos/${arg.id}`, arg);
       return thunkAPI.fulfillWithValue(arg);
     } catch (err) {
       return thunkAPI.rejectWithValue(err);
